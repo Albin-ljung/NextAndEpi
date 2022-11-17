@@ -24,6 +24,7 @@ namespace Cms.Core.Services
 
         private IEnumerable<MenuItem> GetMenuItems()
         {
+            /*
             var container = _contentRepository
                 .GetChildren<MenuContainer>(ContentReference.RootPage)
                 .FirstOrDefault();
@@ -32,7 +33,8 @@ namespace Cms.Core.Services
                 .GetChildren<MenuPage>(container.ContentLink)
                 .FirstOrDefault(y => y.Name.ToLower().Contains("header"));
 
-            return _contentRepository.GetChildren<MenuItem>(headerMenu.ContentLink);
+            return _contentRepository.GetChildren<MenuItem>(headerMenu.ContentLink);*/
+            return new List<MenuItem>();
         }
     }
 }
