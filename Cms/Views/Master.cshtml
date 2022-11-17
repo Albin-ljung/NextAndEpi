@@ -12,13 +12,12 @@
     <div id="page-wrapper">
 
         <cache expires-after="@TimeSpan.FromMinutes(5)">
-            @await Component.InvokeAsync("Header")
         </cache>
 
         @RenderBody()
 
         <cache expires-after="@TimeSpan.FromMinutes(5)">
-            @await Component.InvokeAsync("Footer")
+           
         </cache>
     </div>
 

@@ -1,5 +1,4 @@
-﻿using Cms.Core.Interfaces;
-using Cms.Core.Models.Pages;
+﻿using Cms.Core.Models.Pages;
 using Cms.Core.ViewModel;
 using EPiServer.Web.Mvc;
 using JonDJones.Core.ViewModel;
