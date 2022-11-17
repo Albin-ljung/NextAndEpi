@@ -25,7 +25,6 @@ namespace Cms.Core.InitialisationModule
         {
             context.Services.AddTransient<ISettingsService, SettingsService>();
             context.Services.AddTransient<IMenuService, MenuService>();
-            context.Services.AddTransient<IBlogService, BlogService>();
             context.Services.AddTransient<IEpsierverUrlService, EpsierverUrlService>();
         }
 

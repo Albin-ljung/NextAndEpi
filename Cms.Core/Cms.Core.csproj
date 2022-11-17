@@ -11,7 +11,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Blocks\" />
+    <Folder Include="ContentDelivery\" />
     <Folder Include="Properties\PublishProfiles\" />
+    <Folder Include="ViewModel\Blocks\" />
+    <Folder Include="ViewModel\POCO\" />
   </ItemGroup>
 
 </Project>

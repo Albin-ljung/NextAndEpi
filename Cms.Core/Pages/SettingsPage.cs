@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using Cms.Core.Models.Blocks;
+
 using Cms.Core.Resouces;
 using EPiServer.Core;
 using EPiServer.DataAbstraction;
@@ -22,7 +22,6 @@ namespace Cms.Core.Models.Pages
             Description = "Footer Components",
             GroupName = SystemTabNames.Content,
             Order = 100)]
-        [AllowedTypes(typeof(ContactUsBlock))]
         public virtual ContentArea Footer { get; set; }
     }
 }
