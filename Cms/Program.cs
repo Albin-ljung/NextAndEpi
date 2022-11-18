@@ -18,8 +18,8 @@ namespace Cms
 
         public static void Main(string[] args)
         {
-            Log.Logger = new LoggerConfiguration()
-                .ReadFrom.Configuration(Configuration).WriteTo.Console().CreateLogger();
+            //Log.Logger = new LoggerConfiguration()
+               // .ReadFrom.Configuration(Configuration).WriteTo.Console().CreateLogger();
 
             CreateHostBuilder(args).Build().Run();
         }

@@ -36,7 +36,7 @@ namespace Cms
 
 
             services.AddContentDefinitionsApi();
-            services.AddContentDeliveryApi().WithSiteBasedCors(); ;
+            services.AddContentDeliveryApi().WithFriendlyUrl().WithSiteBasedCors();
 
             services.AddCors(opt =>
             {
