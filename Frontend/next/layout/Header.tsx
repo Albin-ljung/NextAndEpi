@@ -1,13 +1,21 @@
-import { GetServerSidePropsContext, InferGetServerSidePropsType } from 'next'
+import Link from 'next/link';
+import { useMenu } from '../hooks/useMenu';
 
+export default function Header({menu, error, isLoading}:any){
 
-export default function Header({ data }: InferGetServerSidePropsType<typeof getServerSideProps>){
+    if(error) return <p>Gick inte att hämta navigationen</p>
+
+    if(isLoading) return <p>Laddar...</p>
+
     return (
         <header>
             <nav>
                 <ul>
-                    {data.map((item:any) => (
-                        <li>{item.name}</li>
+                    <Link href="/">Home</Link>
+                    {menu.map((item: any, i:number) => (
+                        <li key={i}>
+                            <Link href={item.routeSegment}>{item.name}</Link>
+                        </li>
                     ))}
                 </ul>
             </nav>
@@ -15,24 +23,5 @@ export default function Header({ data }: InferGetServerSidePropsType<typeof getS
     )
 }
 
-
-
-export const getServerSideProps = async (context: GetServerSidePropsContext) => {
-    let myHeaders = new Headers({
-        'Accept': 'application/json'
-    });
-   
-    const res = await fetch(`http://localhost:5000/menus/main-menu/children`, {
-        headers: myHeaders
-    })
-
-    const data = await res.json()
-  
-    return {
-      props: {
-       data
-      },
-    }
-}
 
 
