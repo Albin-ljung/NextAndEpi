@@ -5,7 +5,7 @@ using EPiServer.DataAbstraction;
 using EPiServer.DataAnnotations;
 using EPiServer.Web;
 
-namespace Cms.Core.Models.Pages
+namespace Cms.Core.Pages.Base
 {
     public class SeoMetaData : PageData
     {

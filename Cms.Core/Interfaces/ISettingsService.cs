@@ -1,4 +1,4 @@
-﻿using Cms.Core.Models.Pages;
+﻿using Cms.Core.Pages;
 
 namespace Cms.Core.Interfaces
 {

@@ -1,5 +1,5 @@
 ﻿@using Cms.Core.ViewModel
-@using Cms.Core.Models.Pages
+@using Cms.Core.Pages
 @using JonDJones.Core.ViewModel
 @using EPiServer.Web.Mvc.Html
 
@@ -10,5 +10,6 @@
 
 <!-- Main -->
 <section id="main">
+    @Html.PropertyFor(x => x.Page.Title)
     @Html.PropertyFor(m => m.Page.MainContentArea)
 </section>

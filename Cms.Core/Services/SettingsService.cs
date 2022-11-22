@@ -1,5 +1,5 @@
 ﻿using Cms.Core.Interfaces;
-using Cms.Core.Models.Pages;
+using Cms.Core.Pages;
 using EPiServer;
 using EPiServer.Core;
 using System.Linq;

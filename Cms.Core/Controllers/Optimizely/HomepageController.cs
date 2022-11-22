@@ -1,4 +1,4 @@
-﻿using Cms.Core.Models.Pages;
+﻿using Cms.Core.Pages;
 using Cms.Core.ViewModel;
 using EPiServer.Web.Mvc;
 using JonDJones.Core.ViewModel;

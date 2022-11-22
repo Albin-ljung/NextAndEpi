@@ -1,4 +1,4 @@
-﻿using Cms.Core.Models.Pages;
+﻿using Cms.Core.Pages.Base;
 using Cms.Core.Resouces;
 using EPiServer.Core;
 using EPiServer.DataAbstraction;
@@ -18,7 +18,7 @@ namespace Cms.Core.Pages
         [Display(
            GroupName = SystemTabNames.Content,
            Order = 10)]
-        public virtual string PageTitle { get; set; }
+        public virtual string Title { get; set; }
 
         [Display(
             GroupName = SystemTabNames.Content,

@@ -6,7 +6,7 @@ using EPiServer.DataAbstraction;
 using EPiServer.DataAnnotations;
 using EPiServer.Web;
 
-namespace Cms.Core.Models.Pages
+namespace Cms.Core.Pages
 {
     [Access(Roles = "Administrators")]
     [ContentType(

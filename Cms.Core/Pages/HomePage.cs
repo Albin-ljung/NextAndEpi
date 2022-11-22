@@ -1,10 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using Cms.Core.Pages.Base;
 using Cms.Core.Resouces;
 using EPiServer.Core;
 using EPiServer.DataAbstraction;
 using EPiServer.DataAnnotations;
 
-namespace Cms.Core.Models.Pages
+namespace Cms.Core.Pages
 {
     [ContentType(
         DisplayName = "Home Page",
@@ -14,8 +15,13 @@ namespace Cms.Core.Models.Pages
     public class HomePage : SeoMetaData
     {
         [Display(
+           GroupName = SystemTabNames.Content,
+           Order = 10)]
+        public virtual string Title { get; set; }
+
+        [Display(
             GroupName = SystemTabNames.Content,
-            Order = 10)]
+            Order = 20)]
         public virtual ContentArea MainContentArea { get; set; }
     }
 }
