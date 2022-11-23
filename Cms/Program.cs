@@ -9,11 +9,11 @@ namespace Cms
 {
     public class Program
     {
-        public static IConfiguration Configuration { get; } =
+        /*public static IConfiguration Configuration { get; } =
             new ConfigurationBuilder()
             .AddJsonFile("appSettings.json", false, true)
             .AddEnvironmentVariables()
-            .Build();
+            .Build();*/
 
 
         public static void Main(string[] args)
@@ -28,11 +28,11 @@ namespace Cms
 
             Host.CreateDefaultBuilder(args)
                 .ConfigureCmsDefaults()
-                .UseSerilog()
-                .ConfigureAppConfiguration((ctx, builder) =>
+                //.UseSerilog()
+                /*.ConfigureAppConfiguration((ctx, builder) =>
                 {
                     builder.AddConfiguration(Configuration);
-                })
+                })*/
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();

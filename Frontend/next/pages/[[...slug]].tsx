@@ -3,11 +3,11 @@ import { getPage } from '../hooks/usePage'
 import BlockRenderer from '../layout/BlockRenderer';
 
 export default function Page({pageData}: InferGetServerSidePropsType<typeof getServerSideProps>){
-  console.log(pageData)
+
     return (
         <>
-            <div data-epi-property-name="title" data-epi-edit="title">
-              <h1 data-epi-property-name="title" data-epi-edit="title">{pageData.name}</h1>
+            <div className='epi-editContainer'>
+              <span data-epi-edit="Title">{pageData.name}</span>
             </div>
 
             <BlockRenderer blocks={pageData?.mainContentArea?.expandedValue} />
