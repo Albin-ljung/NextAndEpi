@@ -11,10 +11,10 @@ export default function Header({menu, error, isLoading}:any){
         <header>
             <nav>
                 <ul>
-                    <Link href="/">Home</Link>
+                    <a href="/">Home</a>
                     {menu.map((item: any, i:number) => (
                         <li key={i}>
-                            <Link href={item.routeSegment}>{item.name}</Link>
+                            <a href={"/" + item.routeSegment}>{item.name}</a>
                         </li>
                     ))}
                 </ul>

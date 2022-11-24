@@ -7,7 +7,7 @@ export default function Page({pageData}: InferGetServerSidePropsType<typeof getS
     return (
         <>
             <div className='epi-editContainer'>
-              <span data-epi-edit="Title">{pageData.name}</span>
+              <span data-epi-edit="Title">{pageData.title}</span>
             </div>
 
             <BlockRenderer blocks={pageData?.mainContentArea?.expandedValue} />
@@ -17,7 +17,7 @@ export default function Page({pageData}: InferGetServerSidePropsType<typeof getS
 
 export const getServerSideProps = async (context: GetServerSidePropsContext) => {
     const pageData = await getPage(context.resolvedUrl + "?expand=*");
-  
+
     return {
       props: {
         pageData

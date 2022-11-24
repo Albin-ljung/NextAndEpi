@@ -5,14 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="EPiServer.ContentDeliveryApi.Core" Version="3.0.0" />
+   
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ContentDelivery\" />
     <Folder Include="Properties\PublishProfiles\" />
-    <Folder Include="ViewModel\Blocks\" />
-    <Folder Include="ViewModel\POCO\" />
   </ItemGroup>
 
 </Project>

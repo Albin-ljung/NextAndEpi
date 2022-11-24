@@ -1,6 +1,7 @@
 ﻿using Episerver.ContentDelivery.NodeProxy.DependencyInjection;
 using EPiServer.Cms.Shell;
 using EPiServer.Cms.UI.AspNetIdentity;
+using EPiServer.ContentApi.Core.Configuration;
 using EPiServer.ContentApi.Core.DependencyInjection;
 using EPiServer.Core;
 using EPiServer.Data;
@@ -11,7 +12,6 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Hosting;
 using System;
 using System.Collections.Generic;
@@ -36,20 +36,26 @@ namespace Cms
         {
             AppDomain.CurrentDomain.SetData("DataDirectory", Path.Combine(_webHostingEnvironment.ContentRootPath, "App_Data"));
 
-            
+
 
             services
                 .AddCmsAspNetIdentity<ApplicationUser>()
                 .AddCms()
                 .AddAdminUserRegistration()
                 .AddEmbeddedLocalization<Program>()
-                .ConfigureForExternalTemplates()
+                .ConfigureForExternalTemplates();
                 //.Configure<DataAccessOptions>(options => Configuration.GetConnectionString("EPiServerDB"))
-                .Configure<ExternalApplicationOptions>(o => o.OptimizeForDelivery = true);
+               // .Configure<ExternalApplicationOptions>(o => o.OptimizeForDelivery = true);
 
 
-            services.AddContentDefinitionsApi();
-            services.AddContentDeliveryApi().WithFriendlyUrl().WithSiteBasedCors();
+            services.AddContentDeliveryApi().WithFriendlyUrl();
+            services.ConfigureForContentDeliveryClient();
+            //services.AddContentDeliveryApi().WithFriendlyUrl().WithSiteBasedCors();
+
+            services.Configure<ContentApiOptions>(options =>
+            {
+                options.ForceAbsolute = false;
+            });
 
             services.AddNodeJs(options =>
             {
@@ -77,6 +83,8 @@ namespace Cms
                 }
             });
 
+            /*
+
             services.AddCors(opt =>
             {
                 opt.AddPolicy(name: _policyName, builder =>
@@ -85,7 +93,7 @@ namespace Cms
                         .AllowAnyHeader()
                         .AllowAnyMethod();
                 });
-            });
+            });*/
 
             //services.TryAddEnumerable(ServiceDescriptor.Singleton(typeof(IFirstRequestInitializer), typeof(UsersInstaller)));
         }
@@ -108,22 +116,19 @@ namespace Cms
 
             app.UseRouting();
 
-            app.UseCors(builder => builder
+            /*app.UseCors(builder => builder
                      .AllowAnyOrigin()
                      .AllowAnyMethod()
-                     .AllowAnyHeader());
+                     .AllowAnyHeader());*/
 
-            app.UseCookiePolicy();
             app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllerRoute(name: "Default", pattern: "{controller}/{action}/{id?}");
                 endpoints.MapControllers();
                 endpoints.MapContent();
                 endpoints.MapNodeJs();
-
             });
         }
     }
