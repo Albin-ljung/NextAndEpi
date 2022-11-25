@@ -4,11 +4,11 @@ import Header from "./Header";
 
 export default function Layout({children}: PropsWithChildren) {
 
-    const { data, error, isLoading } = useMenu();
+   // const { data, error, isLoading } = useMenu();
 
+            //<Header isLoading={isLoading} error={error} menu={data} />
     return (
         <div>
-            <Header isLoading={isLoading} error={error} menu={data} />
             {children}
         </div>
     )

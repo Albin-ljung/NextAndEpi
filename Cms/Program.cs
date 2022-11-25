@@ -28,14 +28,18 @@ namespace Cms
 
             Host.CreateDefaultBuilder(args)
                 .ConfigureCmsDefaults()
-                //.UseSerilog()
-                /*.ConfigureAppConfiguration((ctx, builder) =>
-                {
-                    builder.AddConfiguration(Configuration);
-                })*/
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
+                })
+                .ConfigureAppConfiguration( builder =>
+                {
+                    var enviroment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+                    builder.AddJsonFile("appsettings.json", false, true);
+                    builder.AddJsonFile($"appsettings.{enviroment}.json", true, true);
+                    builder.AddJsonFile($"appsettings.{Environment.MachineName}.json", true, true);
+
+                    builder.AddEnvironmentVariables();
                 });
     }
 }

@@ -7,6 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="ContentDelivery\**" />
+    <Content Remove="ContentDelivery\**" />
+    <EmbeddedResource Remove="ContentDelivery\**" />
+    <None Remove="ContentDelivery\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="EPiServer.CMS" Version="12.11.0" />
     <PackageReference Include="EPiServer.ContentDeliveryApi.Cms" Version="3.5.0" />
 
@@ -36,11 +43,8 @@
 	</ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ContentDelivery\" />
     <Folder Include="Properties\PublishProfiles\" />
     <Folder Include="Properties\ServiceDependencies\" />
-    <Folder Include="ViewModel\Blocks\" />
-    <Folder Include="ViewModel\POCO\" />
   </ItemGroup>
 
 </Project>
