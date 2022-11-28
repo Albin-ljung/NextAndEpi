@@ -2,6 +2,7 @@
 using EPiServer.Cms.UI.AspNetIdentity;
 using EPiServer.ContentApi.Core.Configuration;
 using EPiServer.ContentApi.Core.DependencyInjection;
+using EPiServer.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -24,15 +25,15 @@ namespace Cms
 
         public void ConfigureServices(IServiceCollection services)
         {
-            AppDomain.CurrentDomain.SetData("DataDirectory", Path.Combine(_webHostingEnvironment.ContentRootPath, "App_Data"));
+            //AppDomain.CurrentDomain.SetData("DataDirectory", Path.Combine(_webHostingEnvironment.ContentRootPath, "App_Data"));
 
             services
                 .AddCmsAspNetIdentity<ApplicationUser>()
                 .AddCms()
                 .AddAdminUserRegistration()
                 .AddEmbeddedLocalization<Program>()
-                .ConfigureForExternalTemplates();
-                //.Configure<DataAccessOptions>(options => Configuration.GetConnectionString("EPiServerDB"));
+                .ConfigureForExternalTemplates()
+                .Configure<DataAccessOptions>(options => Configuration.GetConnectionString("EPiServerDB"));
 
 
 

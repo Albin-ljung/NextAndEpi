@@ -306,3 +306,5 @@ CREATE INDEX [EmailIndex] ON [AspNetUsers] ([NormalizedEmail]);
 2022-11-28 10:07:23.080 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
 CREATE UNIQUE INDEX [UserNameIndex] ON [AspNetUsers] ([NormalizedUserName]) WHERE [NormalizedUserName] IS NOT NULL;
 2022-11-28 10:07:23.225 +01:00 [INF] create-cms-database has completed.
+2022-11-28 20:05:20.249 +01:00 [INF] Running create-cms-database command.
+2022-11-28 20:05:21.943 +01:00 [INF] create-cms-database has completed.
