@@ -1,47 +1,36 @@
 import { GetServerSidePropsContext, InferGetServerSidePropsType } from 'next'
 import Head from 'next/head'
 import Script from 'next/script'
-import { ReponseHeaders } from '../fetch/fetch';
-
-import { getPage } from '../hooks/usePage'
+import { useEffect } from 'react';
+import { getPage, usePage } from '../hooks/usePage'
 import BlockRenderer from '../layout/BlockRenderer';
 
 export default function Page({res, notFound}: InferGetServerSidePropsType<typeof getServerSideProps>){
 
-    const mode = Object.entries(res?.headers as ReponseHeaders).find((entry) => {
-      if(entry[0] === "x-epi-contextmode") return entry
-    }) as any;
+ 
+    console.log(res)
 
     if(notFound){
-      return (
-        <p>Not found page</p>
-      )
-    }
-
-    
-    if(mode && mode[1] === "Preview"){
-      return (
-        <span  data-epi-edit="Title">{res?.data[0].title}</span>
-      )
+      return <p>Page not found</p>
     }
 
     return (
         <>
-          <span>{res?.data[0].title}</span>
+          <h1 data-epi-edit={(res?.headers as any)["x-epi-contextmode"] ? "title" : null}>{res?.data[0].title}</h1>
+          {(res?.headers as any)["x-epi-contextmode"] ? <Script src="/episerver/cms/latest/clientresources/communicationinjector.js" /> : null}
+          <BlockRenderer blocks={res?.data[0].mainContentArea} />
         </>
     )
   }
   
-  //<Script src="/episerver/cms/latest/clientresources/communicationinjector.js" />
 export const getServerSideProps = async (context: GetServerSidePropsContext) => {
-    const res = await getPage(context.resolvedUrl + "?expand=*");
 
-    
+    const res = await getPage(context.resolvedUrl, {cookie: context.req.headers.cookie}); // Cookie for authorizing 
 
-    if(res.ok && res.data.length != 0){
+    if(res.ok){
       return {
         props: {
-          res: res
+          res: res,
         },
       }
     }

@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
+
+
 namespace Cms
 {
     public class Startup
@@ -24,19 +26,21 @@ namespace Cms
         {
             AppDomain.CurrentDomain.SetData("DataDirectory", Path.Combine(_webHostingEnvironment.ContentRootPath, "App_Data"));
 
-
-
             services
                 .AddCmsAspNetIdentity<ApplicationUser>()
                 .AddCms()
                 .AddAdminUserRegistration()
                 .AddEmbeddedLocalization<Program>()
                 .ConfigureForExternalTemplates();
-                //.Configure<DataAccessOptions>(options => Configuration.GetConnectionString("EPiServerDB"))
-                
+                //.Configure<DataAccessOptions>(options => Configuration.GetConnectionString("EPiServerDB"));
 
 
-            services.AddContentDeliveryApi();
+
+            services.AddContentDeliveryApi(options =>
+            {
+                options.SiteDefinitionApiEnabled = true;
+            });
+
             services.ConfigureForContentDeliveryClient();
       
             services.Configure<ContentApiOptions>(options =>

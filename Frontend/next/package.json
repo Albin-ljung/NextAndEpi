@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@episerver/content-delivery": "^1.1.0",
     "@tanstack/react-query-devtools": "^4.16.1",
     "@types/node": "18.11.9",
     "@types/react": "18.0.25",

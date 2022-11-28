@@ -11,7 +11,7 @@ export default function BlockRenderer({ blocks }:any){
     if(!blocks) return null;
 
     const BlockComponents = blocks.map((block:any, i:number) => {
-        const Component = blockTypes[block.contentType[1]];
+        const Component = blockTypes[block.contentLink.expanded.contentType[1]];
         if(!Component) return null;
 
         return <Component blockContent={block} key={i}/>

@@ -1,8 +1,9 @@
 
-export const fetchData = (api:string, config = {}) => {
+export const fetchData = (api:string, headers = {}, config = {}) => {
     let myHeaders = new Headers({
         'Accept': '*/*',
-        'Accept-language': "en"
+        'Accept-language': "sv-SE,sv;q=0.9,en-US;q=0.8,en;q=0.7",
+        ...headers
     });
 
     return new Promise<ApiResponse>((resolve, reject) => {
@@ -16,17 +17,10 @@ export const fetchData = (api:string, config = {}) => {
                 data: await res.json().catch(() => {})
             }
 
-            console.log(res.headers.get("x-epi-contextmode"))
-
-       
             res.headers.forEach((val: string, key: string) => {
-               
-                
                 result.headers = {...result.headers, [key]: val}
             });
             
-
-
             resolve(result);
         }).catch((error: any) => {
             reject(mapToError(error))

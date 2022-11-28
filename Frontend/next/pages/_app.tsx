@@ -7,7 +7,6 @@ import Layout from '../layout/Layout';
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   const [queryClient] = useState(() => new QueryClient());
-  console.log("render")
 
   return (
     <QueryClientProvider client={queryClient}>
