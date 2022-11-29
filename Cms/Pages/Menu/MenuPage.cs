@@ -15,7 +15,7 @@ namespace Cms.Core.Pages.Menu
             Description = "Menu",
             GroupName = GlobalConstants.TabNames.Container)]
     [AvailableContentTypes(Include = new[] { typeof(MenuItem) })]
-    [ImageUrl("/images/pic01.jpg")]
+    
     public class MenuPage : PageData
     {
         [CultureSpecific]

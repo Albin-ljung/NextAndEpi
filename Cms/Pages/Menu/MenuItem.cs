@@ -12,7 +12,7 @@ namespace Cms.Core.Pages.Menu
             GUID = "399670e8-454e-4fd9-be85-6501030d971e",
             Description = "Menu Item",
             GroupName = GlobalConstants.TabNames.Container)]
-    [ImageUrl("/images/pic01.jpg")]
+  
     public class MenuItem : PageData
     {
         [Display(

@@ -17,7 +17,6 @@ namespace Cms.Core.Blocks
         DisplayName = "Image block",
         GUID = "493bcff8-d98e-463a-8124-cfd8deeeb5c0",
         GroupName = GlobalConstants.GroupNames.Common)]
-    [ImageUrl("/images/pic02.jpg")]
     public class ImageBlock : BlockData
     {
         [Display(

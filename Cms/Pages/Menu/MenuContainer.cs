@@ -11,7 +11,7 @@ namespace Cms.Core.Pages.Menu
             Description = "A placeholder to help organise menus",
             GroupName = GlobalConstants.TabNames.Container)]
     [AvailableContentTypes(Include = new[] { typeof(MenuPage) })]
-    [ImageUrl("/images/pic01.jpg")]
+   
     public class MenuContainer : PageData
     {
         public override void SetDefaultValues(ContentType contentType)
