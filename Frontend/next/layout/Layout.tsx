@@ -1,14 +1,15 @@
-import { useMenu } from "../hooks/useMenu"
+
 import { PropsWithChildren } from "react";
+import { useMainMenu } from "../hooks/useMainMenu";
 import Header from "./Header";
 
 export default function Layout({children}: PropsWithChildren) {
 
-   // const { data, error, isLoading } = useMenu();
+   const { data, error, isLoading } = useMainMenu();
 
-            //<Header isLoading={isLoading} error={error} menu={data} />
-    return (
-        <div>
+   return (
+       <div>
+            <Header isLoading={isLoading} error={error} menu={data} />
             {children}
         </div>
     )

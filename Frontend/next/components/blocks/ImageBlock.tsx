@@ -1,6 +1,6 @@
 export default function ImageBlock({blockContent}:any){
-    const { image } = blockContent;
+    const { image } = blockContent.contentLink.expanded;
     return (
-        <img src={image.value.url} />
+        <img src={image.url} />
     )
 }

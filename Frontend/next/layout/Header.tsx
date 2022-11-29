@@ -1,12 +1,16 @@
 import Link from 'next/link';
-import { useMenu } from '../hooks/useMenu';
 
 export default function Header({menu, error, isLoading}:any){
 
-    if(error) return <p>Gick inte att hämta navigationen</p>
+    if(error) return <p>Could not get main menu</p>
 
-    if(isLoading) return <p>Laddar...</p>
+    if(isLoading) return <p>Loading...</p>
 
+
+    // Mode = "Edit" should be put in a global state so we can
+    // access it here and render normal anchor tag in Epi admin 
+
+    
     return (
         <header>
             <nav>

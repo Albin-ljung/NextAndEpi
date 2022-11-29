@@ -25,7 +25,6 @@ namespace Cms
 
         public void ConfigureServices(IServiceCollection services)
         {
-            //AppDomain.CurrentDomain.SetData("DataDirectory", Path.Combine(_webHostingEnvironment.ContentRootPath, "App_Data"));
 
             services
                 .AddCmsAspNetIdentity<ApplicationUser>()
@@ -59,6 +58,9 @@ namespace Cms
                 }
                 else
                 {
+                    // Production build should be looked in to. Its not touched and still has Vue stuff.
+
+
                     var port = 4000;
 
                     options.DestinationPort = port;
