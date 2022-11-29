@@ -8,8 +8,9 @@ This project uses:
 
 ## Setup and run
 
-1. Navigate to CMS folder and run command "dotnet-episerver create-cms-database cms.csproj -S "(LocalDb)\MSSQLLocalDB" -E"
-2. start project with either "dotnet run" (CMS folder) in terminal or IDE
+1. Navigate to CMS folder in terminal and run command "dotnet-episerver create-cms-database cms.csproj -S "(LocalDb)\MSSQLLocalDB" -E"
+2. Navigate to Frontend/next in terminal and run "npm install"
+3. start project with either "dotnet run" (CMS folder) in terminal or IDE
 * Node.js proxy will start next js APP
 * Create admin user
 * Create a home page under root and set that home page to a new Website with site url "http://localhost:5000 inside in Optimizely adimn panel
