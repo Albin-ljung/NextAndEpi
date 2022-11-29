@@ -35,9 +35,10 @@ export default function Page({res, notFound}: InferGetServerSidePropsType<typeof
 
     return (
         <>
-          <h1 data-epi-edit={pageData.mode === ContextMode.Edit ? "title" : null}>{pageData.content?.title}</h1>
-          {pageData?.mode === ContextMode.Edit ? <Script src="/episerver/cms/latest/clientresources/communicationinjector.js" /> : null}
+          {pageData.content?.title && <h1 data-epi-edit={pageData.mode === ContextMode.Edit ? "title" : null}>{pageData.content?.title}</h1>}
           <BlockRenderer blocks={pageData.content?.blocks} />
+          
+          {pageData?.mode === ContextMode.Edit ? <Script src="/episerver/cms/latest/clientresources/communicationinjector.js" /> : null}
         </>
     )
   }

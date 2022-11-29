@@ -6,6 +6,7 @@ export default function Header({menu, error, isLoading}:any){
 
     if(isLoading) return <p>Loading...</p>
 
+    if(menu.length === 0) return <p>The menu seems empty</p>
 
     // Mode = "Edit" should be put in a global state so we can
     // access it here and render normal anchor tag in Epi admin 
