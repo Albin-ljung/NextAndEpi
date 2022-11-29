@@ -13,4 +13,4 @@ This project uses:
 3. start project with either "dotnet run" (CMS folder) in terminal or IDE
 * Node.js proxy will start next js APP
 * Create admin user
-* Create a home page under root and set that home page to a new Website with site url "http://localhost:5000 inside in Optimizely adimn panel
+* Create a home page under root and set that home page to a new Website with site url "http://localhost:5000 inside in Optimizely admin panel
