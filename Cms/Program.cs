@@ -1,8 +1,6 @@
 ﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
-using Serilog;
-using Serilog.Formatting.Compact;
 using System;
 
 namespace Cms
@@ -12,9 +10,6 @@ namespace Cms
 
         public static void Main(string[] args)
         {
-            //Log.Logger = new LoggerConfiguration()
-               // .ReadFrom.Configuration(Configuration).WriteTo.Console().CreateLogger();
-
             CreateHostBuilder(args).Build().Run();
         }
 
